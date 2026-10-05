@@ -1,10 +1,10 @@
 # picofold.py: 
-A *minimal* protein structure predictor written in ~200 lines of *readable* PyTorch. AlphaFold 2 (Nobel Prize 2024) predicted structures with MSAs, pair representations and triangle updates; AlphaFold 3 swapped the structure module for diffusion. SimpleFold (2025) showed a transformer trained with flow matching (cousin of diffusion) works almost as well, without needing AlphaFold's special machinery. Toy task: given 16 amino acids, generate the 3D positions of their 16 C-alpha atoms using flow matching. Trained on ~47k 16-residue fragments from CATH S40 / Protein Data Bank.
+A *minimal* protein structure predictor written in ~200 lines of *readable* PyTorch. AlphaFold 2 (Nobel Prize 2024) predicted structures with MSAs, pair representations and triangle updates; AlphaFold 3 swapped the structure module for diffusion. SimpleFold (2025) showed a transformer trained with flow matching (cousin of diffusion) works almost as well, without needing AlphaFold's special machinery. Toy task: given 16 amino acids, generate the 3D positions of their 16 C-alpha atoms using flow matching. Trained on ~47k 16-residue fragments from CATH S40 / Protein Data Bank. I wrote this to demystify protein folding and flow matching for me. Hope you find useful!
 
-I wrote this to demystify protein folding and flow matching for me. Hope you find it useful!
-
-![picofold](picofold_folding.gif )
-
+<p align="center">
+    <img src="picofold_folding.gif" alt="picofold folding animation">
+</p>
+  
 ## Protein 101 ##
 
 **Proteins are strings.**
