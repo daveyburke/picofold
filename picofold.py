@@ -1,6 +1,6 @@
 """
-picofold.py: a minimal protein structure predictor written in ~200 lines of readable PyTorch. AlphaFold 2 (Nobel Prize
-2024) predicted structures with MSAs, pair representations and triangle updates; AlphaFold 3 swapped the structure
+picofold.py: a minimal protein structure predictor written in ~200 lines of readable PyTorch. DeepMind's AlphaFold 2 (Nobel
+Prize 2024) predicted structures with MSAs, pair representations and triangle updates; AlphaFold 3 swapped the structure
 module for diffusion. SimpleFold (2025) showed a transformer trained with flow matching (cousin of diffusion) works
 almost as well, without needing AlphaFold's special machinery. Toy task: given 16 amino acids, generate the 3D positions
 of their 16 C-alpha atoms using flow matching. Trained on ~47k 16-residue fragments from CATH S40 / Protein Data Bank.
