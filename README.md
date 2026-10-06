@@ -193,7 +193,7 @@ Run `python picofold_visualizer.py 123` to pick a different test fragment. This 
 
 ## Limitations ##
 picofold.py is designed to be a minimal, easy to understand implementation of protein folding on a toy training set. 
-It distills the key concepts down to their essence for pedagogical reasons. Things that would improve the model:
+It distills the key concepts down to their essence for education. Things that would improve the model:
  - Mirror images. The model sometimes builds left-handed helices, which real
    proteins never have, and both metrics are blind to it because
    mirroring preserves every distance. A mirror-sensitive input feature
@@ -202,8 +202,8 @@ It distills the key concepts down to their essence for pedagogical reasons. Thin
    (neighbors along the chain are always 3.8 A apart), so even a random real
    window scores 0.52.
  - Local only. 16-residue windows hold secondary structure (helices,
-   strands, turns), not whole folds. Longer windows and protein language
+   strands, turns), but not whole folds. Longer windows and protein language
    model embeddings learned from evolution such as ESM (which SimpleFold uses)
    would be the next steps toward real folding.
 
-PS: I also wrote a version of this as microfold.py, a pure Python implementation, but at 1M+ parameters it was far too slow! The picofold.py is shorter, easier to understand, and executes much faster. Thanks to PyTorch, picofold.py runs on GPU, MPS (i.e. Mac), or CPU. 
+PS: I also wrote a version of this as microfold.py, a pure Python implementation, but at 1M+ parameters and no batching, it was far too slow! picofold.py is shorter, easier to understand, and trains in ~10 minutes on an M4 Macbook. 
