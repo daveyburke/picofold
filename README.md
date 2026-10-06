@@ -121,10 +121,15 @@ loss = F.mse_loss(model(seq, x_t, t), x1 - x0)                    # predict v = 
 
 ## Generation code
 
-Start from noise and take 200 Euler–Maruyama steps from $t=0$ to $t=1$, re-centering the
-structure each step:
+Start from noise and take 200 Euler–Maruyama steps from $t=0$ to $t=1$. We re-center the
+structure each step since position carries no information (only shape matters); this removes
+drift during the Euler-Maruyama steps, and helps the model since it only saw zero-centered
+data during training:
 
 ```python
+x = x - x.mean(dim=1, keepdim=True)      # keep the structure centered
+v = model(seq, x, torch.full((seq.shape[0],), t, device=seq.device))  # (B, L, 3)
+
 noise_guess = x - t * v                  # the model's guess of the noise in x
 score = -noise_guess / (1 - t)           # points toward less noisy structures
 w = (1 - t) / (t + 0.01)                 # correction strength: big early, small late
