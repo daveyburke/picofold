@@ -2,9 +2,9 @@
 A *minimal* protein structure predictor written in ~200 lines of *readable* PyTorch. DeepMind's [AlphaFold 2](https://www.nature.com/articles/s41586-021-03819-2) (Nobel Prize 2024) predicted structures with MSAs, pair representations and triangle updates; AlphaFold 3 swapped the structure module for diffusion. [SimpleFold (2025)](https://arxiv.org/abs/2509.18480) showed a transformer trained with flow matching (cousin of diffusion) works almost as well, without needing AlphaFold's special machinery. Toy task: given 16 amino acids, generate the 3D positions of their 16 C-alpha atoms using flow matching. Trained on ~47k 16-residue fragments from CATH S40 / Protein Data Bank. I wrote this to demystify protein folding and flow matching for me. Hope you find useful!
 
 <p align="center">
-    <img src="picofold_folding.gif" alt="picofold folding animation">
+    <kbd><img src="picofold_folding.gif" alt="picofold folding animation"></p></kbd>
 </p>
-picofold was inspired by @karpathy's microgpt and nanogpt. Printable artwork in a similar layout to microgpt:
+<p>The picofold project was inspired by @karpathy's microgpt and nanogpt. Printable artwork in a similar layout to microgpt:</p>
 <p>
     <img src="picofold_24x16_print.png" alt="picofold printable code">
 </p>
@@ -71,7 +71,7 @@ version called Euler–Maruyama which introduces a random noise kick at each ste
 
 $$x_{n+1} = x_n + a(t_n, x_n)\Delta t + b(t_n, x_n)\Delta W_n$$
 
-where $a$ is the deterministic drift part, $b$ is the diffusion part, and $\Delta W_n = \sqrt{\Delta t}.\mathcal{N}(0, 1)$ is the Wiener process (basically Gaussian noise whose variance increases proportional to time steps). 
+where $a$ is the deterministic drift part, $b$ is the diffusion part, and $\Delta W_n = \sqrt{\Delta t}.\mathcal{N}(0, 1)$ is the Wiener process (basically zero mean Gaussian noise whose variance increases proportional to time steps). 
 
 The model was trained to remove clean Gaussian noise, i.e. to eventually get to the clean training example as $t$ increases. But it is imperfect so we apply a trick to remove the model's estimate of noise and re-add clean Gaussian noise so errors don't accumulate when we iteratively generate the 3d structure. 
 The model's guess of the noise at time t is $x - t.v$ (this comes from substituting $v = x_1 - \epsilon$ into eqn 2.1). The the drift component gets an extra term, (this pulls the prediction toward less noisy structure) and add in fresh noise to the diffusion component:
