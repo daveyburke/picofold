@@ -4,7 +4,7 @@ A *minimal* protein structure predictor written in ~200 lines of *readable* PyTo
 <p align="center">
     <img src="picofold_folding.gif" alt="picofold folding animation">
 </p>
-Printable picofold art inspired by Karpathy's microgpt:
+picofold was inspired by @karpathy's microgpt and nanogpt. Printable artwork in a similar layout to microgpt:
 <p>
     <img src="picofold_24x16_print.png" alt="picofold printable code">
 </p>
