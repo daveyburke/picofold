@@ -80,8 +80,12 @@ the score, that points away from the estimated noise.
 $$\text{drift} \ a = v_\theta(x_t, t \mid s) + \tfrac{1}{2}\thinspace w(t)\thinspace\mathrm{score}_\theta$$
 $$\qquad \text{diffusion} \ b = \sqrt{\tau\thinspace w(t)}$$
 
-where $`\mathrm{score}_\theta = -(x_t - t\thinspace v_\theta(x_t, t \mid s))/(1-t)`$,
-$w(t) = (1-t)/(t+0.01)$, and $\tau$ is the fresh noise factor added during generation. The remove/re-add pair is balanced, so it doesn't bias the result.
+where
+
+$$\mathrm{score}_\theta = -(x_t - t\thinspace v_\theta(x_t, t \mid s))/(1-t)$$
+$$w(t) = (1-t)/(t+0.01)$$
+
+and $\tau$ is the fresh noise factor added during generation. The remove/re-add pair is balanced, so it doesn't bias the result.
 
 The $1/(1−t)$ factor is there because $x_t$ only contains $(1−t)$ * noise.
 
