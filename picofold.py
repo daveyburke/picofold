@@ -107,7 +107,7 @@ class PicoFold(nn.Module):
 
             # b) SwiGLU feed-forward network
             n = block['norm2'](h)  # (B, L, d)
-            h = h + block['down'](F.silu(block['gate'](n)) * block['up'](n))  # (B, L, 4d) inside, (B, L, d) out
+            h = h + block['down'](nn.functional.silu((block['gate'](n)) * block['up'](n))  # (B, L, 4d) inside, (B, L, d) out
 
         return self.out(self.final_norm(h))  # (B, L, 3) velocity
 
