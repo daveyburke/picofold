@@ -195,7 +195,7 @@ a test fragment's true structure next to four generated samples (`picofold_struc
 plus an animation of one sample condensing from noise into a structure (`picofold_folding.gif`).
 Run `python picofold_visualizer.py 123` to pick a different test fragment. This part was written exclusively by Claude.
 
-A Jupyter notebook tutorial is available in picofold_tutorial.ipynb - load in Google Colab to view/run.
+A Jupyter notebook tutorial is available in `picofold_tutorial.ipynb` - load in Google Colab to view/run.
 
 ## Limitations ##
 picofold.py is designed to be a minimal, easy to understand implementation of protein folding on a toy training set. 
