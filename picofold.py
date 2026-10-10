@@ -11,7 +11,6 @@ import math
 import random
 import torch
 import torch.nn as nn
-import torch.nn.functional as F
 
 torch.manual_seed(42); random.seed(42)
 device = ('cuda' if torch.cuda.is_available()
@@ -143,7 +142,7 @@ def train(): # flow matching training
         x_t = t[:, None, None] * x1 + (1 - t[:, None, None]) * x0            # (B, L, 3)
 
         # Predict the velocity along that line; the loss is just squared error
-        loss = F.mse_loss(model(seq, x_t, t), x1 - x0)  # both (B, L, 3); loss is a scalar
+        loss = ((model(seq, x_t, t) - (x1 - x0)) ** 2).mean()  # both (B, L, 3) => scalar
 
         optimizer.zero_grad()
         loss.backward()
