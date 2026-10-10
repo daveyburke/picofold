@@ -77,7 +77,7 @@ The model was trained to remove clean Gaussian noise, i.e. to eventually get to 
 The model's guess of the noise at time t is $x - t.v$ (this comes from substituting $v = x_1 - \epsilon$ into eqn 2.1). The the drift component gets an extra term, (this pulls the prediction toward less noisy structure) and add in fresh noise to the diffusion component:
 the score, that points away from the estimated noise.
 
-$$\text{drift} \ a = v_\theta(x_t, t \mid s) + \tfrac{1}{2}\thinspace w(t)\thinspace\mathrm{score}_\theta$$
+$$\text{drift} \ a = v_\theta(x_t, t \mid s) + \thinspace w(t)\thinspace\mathrm{score}_\theta$$
 $$\qquad \text{diffusion} \ b = \sqrt{\tau\thinspace w(t)}$$
 
 where
