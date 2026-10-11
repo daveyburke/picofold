@@ -166,7 +166,7 @@ Predictions are scored on 1,000 held-out fragments from proteins never seen in t
 
 | | lDDT ↑ | dRMSD ↓ |
 |---|---|---|
-| picofold | 0.62 | 3.7 Å |
+| picofold | 0.65 | 3.6 Å |
 | random real fragment (baseline) | 0.52 | 4.9 Å |
 
 The baseline "predicts" a random real fragment of protein geometry that's unrelated to the
