@@ -212,4 +212,4 @@ It distills the key concepts down to their essence for education. Things that wo
    model embeddings learned from evolution such as ESM (which SimpleFold uses)
    would be the next steps toward real folding.
 
-PS: I also wrote a version of this as microfold.py, a pure Python implementation, but at 1M+ parameters and no batching, it was far too slow! picofold.py is shorter, easier to understand, and trains in ~10 minutes on an M4 Macbook. 
+PS: I also wrote a version of this as microfold.py, a pure Python implementation, but at 1M+ parameters and no batching, it was far too slow! picofold.py is shorter, easier to understand, and trains in <1 hour on an M4 Macbook. 
