@@ -6,7 +6,7 @@ A *minimal* protein structure predictor written in ~200 lines of *readable* PyTo
 </p>
 <p>The picofold project was inspired by @karpathy's microgpt and nanogpt. Printable artwork in a similar layout to microgpt:</p>
 <p>
-    <img src="picofold_24x16_print.png" alt="picofold printable code">
+    <img src="picofold_36x24_print.jpg" alt="picofold printable code">
 </p>
 
 ## Protein 101 ##
